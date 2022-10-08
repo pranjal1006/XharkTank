@@ -9,19 +9,19 @@ The express app uses Prisma ORM to interact with the DB. Target database is Post
 
 #### Get all pitches
 
-```http
+```
   GET /pitches
 ```
 
 #### Get a single pitch
 
-```http
+```
   GET /pitches/${id}
 ```
 
 #### Create a new pitch
 
-```http
+```
   GET /pitches
 ```
 
@@ -35,7 +35,7 @@ The express app uses Prisma ORM to interact with the DB. Target database is Post
 
 #### Create a new offer for `pitchId`
 
-```http
+```
   GET /pitches/${id}/makeOffer
 ```
 

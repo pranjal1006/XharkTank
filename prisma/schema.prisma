@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://admin:Admin@1324@localhost:5432/xharktank"
+}
+
+model Pitch {
+  id            Int       @id @default(autoincrement())
+  entrepreneur  String    @db.VarChar(255)
+  pitchTitle    String    @db.VarChar(100)
+  pitchIdea     String
+  askAmount     Decimal
+  equity        Decimal
+  createdAt     DateTime  @default(now())
+  offers        Offer[]
+}
+
+model Offer {
+  id        Int     @id @default(autoincrement())
+  investor  String  @db.VarChar(255)
+  amount    Decimal
+  equity    Decimal
+  comment   String
+  pitchId   Int
+  pitch     Pitch   @relation(fields: [pitchId], references: [id])
+}
